@@ -1,11 +1,14 @@
 import streamlit as st
 from langchain.llms import OpenAI
+import os
+from dotenv import load_dotenv
 
 st.title("🦜🔗 Langchain Quickstart App")
 
 with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", type="password")
-    "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
+    openai_api_key = os.environ["OPENAI_API_KEY"]
+    # st.text_input("OpenAI API Key", type="password")
+    # "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
 
 
 def generate_response(input_text):
